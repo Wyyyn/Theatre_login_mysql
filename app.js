@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+var session=require('express-session');
+
 var app = express();
 
 // view engine setup
@@ -17,12 +19,20 @@ app.set('view engine', 'ejs');
 app.use(favicon());
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded());
-app.use(cookieParser());
+app.use(bodyParser.urlencoded({extend:false}));
+
+app.use(cookieParser("An"));
+
+app.use(session({
+    secret:'an',
+    resave:false,
+    saveUninitialized:true
+}));
+
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes);
-app.use('/users', users);
+ app.use('/users', users);
 
 /// catch 404 and forwarding to error handler
 app.use(function(req, res, next) {
@@ -55,5 +65,6 @@ app.use(function(err, req, res, next) {
     });
 });
 
-
+var api=require('./routes/api');
+app.get('/api',api.index)
 module.exports = app;
