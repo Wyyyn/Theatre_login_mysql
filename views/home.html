@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/home.css">
+    <script src="javascripts/jquery-3.1.0.min.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+
+</head>
+<body>
+<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#example-navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" id="TITLE" href="#">长恨歌剧院</a>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/">首页</a></li>
+                <li><a href="/drama_order">购票</a></li>
+                <li>
+                    <a href="/introduce">中心介绍</a>
+                </li>
+            </ul>
+
+            <nav>
+                <% if(locals.islogin){%>
+                <span><a href="#"><%= user %></a></span>&nbsp;
+                <span><a class="btn" href="/logout">退出</a></span>
+                <% }else{%>
+                <span><a title="登陆" href="/login">登陆</a></span>&nbsp;
+                <span><a title="注册" href="/reg">注册</a></span>
+                <%}%>
+            </nav>
+
+        </div>
+    </div>
+</nav>
+<div class="bg"></div>
+<div class="introduce">
+    <div class="indexpart2">
+        <div class="indexpart2img">
+            <img src="images/part1.jpg" class="img_responsive" width="500" height="350"/>
+        </div>
+
+        <div class="indexpart2words">
+            <h2>长恨歌剧院介绍</h2>
+            <h3>创意·品质·多元</h3>
+            <p>长恨歌剧院是中国最优秀的话剧团体之一。中心不仅有着一大批专业的编剧、导演、演员、舞台等创作人员，还拥有三个大小各异、功能齐全的专业演出剧场，每年中心自主创作及交流引进的各色演出达600场，吸引国内外观众十几万人次。长恨歌话剧艺术中心的宗旨是：以自身的
+                博大与包容吸纳全国各地世界各国的艺术家，用形式多样内容丰富的舞台作品吸引更多的观众，在台前幕后所有人员的共同努力下把长恨歌话剧艺术中心发展成为一
+                家具有国际声望的，且与上海这座城市地位相匹配的现代化世界一流剧院。</span></p>
+            <a href="#">
+                MORE
+            </a>
+        </div>
+    </div>
+</div>
+<div class="introduce2">
+    <div class="indexpart2">
+        <div class="indexpart2img">
+            <img src="images/part2.jpg" class="img_responsive" width="500" height="700"/>
+        </div>
+
+        <div class="indexpart2words">
+            <h2>长恨歌剧情介绍</h2>
+            <p>一个女人四十年的情与爱，被一支细腻而绚烂的笔写得哀婉动人，跌宕起伏。<br />二十世纪四十年代，还是中学生的王琦瑶被选为“上海小姐”，
+                从此开始命运多舛的一生。先是做了某大员的“金丝雀”从少女变成了真正的女人。后上海解放，大员遇难，王琦瑶成了普通百姓，顿似漂萍。
+                表面的日子平淡似水，内心的情感潮水却从未平息，与几个男人的复杂关系，阴差阳错，幽怨百结，想来都是命里注定。面对时代的汪洋大海，她软弱地固守昔日的生活方式和情调，渐渐沉溺……<br />
+                八十年代，已是知天命的王琦瑶难逃劫数，与一名叫“老克勒”的怀旧青年发生畸恋，余光暗淡，心怀热烈，却意外地死于非命，饮恨黄泉……
+            </p>
+            <a href="#">
+                MORE
+            </a>
+        </div>
+    </div>
+</div>
+<div class="footer">
+<div class="footerpart1">
+    <div class="footadd">
+    <p>剧院地址：陕西省西安市长安区子午大道<br>票房热线：0290-8754321</p>
+</div>
+</div>
+    <div class="footerpart2">
+    <div class="footcopy">
+    <p>版权所有&nbsp;陕ICP备XXXXXXXX<br>长恨歌话剧艺术中心</p>
+    </div>
+    </div>
+</div>
+<script>
+    $(window).scroll(function () {
+        if ($(".navbar").offset().top > 50) {$(".navbar-fixed-top").addClass("top-nav");
+        }else {$(".navbar-fixed-top").removeClass("top-nav");}
+    });
+
+</script>
+</body></html>

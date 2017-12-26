@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/font-awesome.min.css">
+    <script src="javascripts/jquery-3.1.0.min.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+    <style type="text/css">
+    html, body {width:100%;height:100%;} /*非常重要的样式让背景图片100%适应整个屏幕*/
+    *{
+        padding:0px;
+        margin:0px;
+    }
+
+    .my-navbar {padding:20px 0;background-color: rgba(0,0,0,0.4);}
+    #TITLE{font-size: 40px;font-weight: 200;}
+    .my-navbar a{background:transparent !important;color:#fff !important;font-size: 25px;}
+    .navbar-nav li{margin-left: 80px;}
+    .my-navbar a:hover {color:#45bcf9 !important;background:transparent;outline:0}
+    nav{float:right;margin-right: 10px;}
+    .navbar-collapse nav{margin-top: 10px;}
+    .introduce{
+        width:100%;
+        height:900px;
+        background-color: #2b2a2a;
+        padding-top: 91px;
+    }
+    .index{
+        float:left;
+        width:20%;
+        height:700px;
+    }
+    .indextitle{
+        background-color: #00b3ee;
+        width:100%;
+        height:80px;
+        padding:15px;
+    }
+    .indextitle span{
+        color:#fff;
+        font-weight: 200;
+        font-size: 40px;
+    }
+    .indexpart{
+        padding-top: 40px;
+        padding-left: 20px;
+        background-color: #2b2a2a;
+        color:#fff;
+        width:100%;
+        height:720px;
+        font-family: "Microsoft Yahei", Helvetica, arial, sans-serif,FontAwesome !important;
+    }
+    .indexpart li{
+        margin-bottom: 20px;
+        color:#fff;
+    }
+    .indexpart a{
+        color:#fff;
+        text-decoration: none;
+    }
+
+    .indexpart a:hover{
+        color:#00b3ee;
+    }
+
+    .indexpart span{
+        font-size: 23px;
+    }
+    .indexpart .nav>li:hover{
+        color:#00b3ee;
+    }
+    .seats{
+            width:80%;
+            height:800px;
+            background-color: #D3D3D3;
+            float:left;
+        }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#example-navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" id="TITLE" href="#">长恨歌剧院</a>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/home">首页</a></li>
+                <li><a href="/drama_order">购票</a></li>
+                <li>
+                    <a href="/introduce">中心介绍</a>
+                </li>
+            </ul>
+
+            <nav>
+                <% if(locals.islogin){%>
+                <span><a href="#"><%= user %></a></span>&nbsp;
+                <span><a class="btn" href="/logout">退出</a></span>
+                <% }else{%>
+                <span><a title="登陆" href="/login">登陆</a></span>&nbsp;
+                <span><a title="注册" href="/reg">注册</a></span>
+                <%}%>
+            </nav>
+
+        </div>
+    </div>
+</nav>
+<div class="introduce">
+    <div class="index">
+        <div class="indextitle"><span>购票</span></div>
+        <div class="indexpart">
+            <ul class="nav nav-bar">
+                <li id="index1"><i class="fa fa-arrow-circle-right fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<span><a href="javascript:Show(1)">2017-12-30</a></span></li>
+                <li id="index2"><i class="fa fa-arrow-circle-right fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<span><a href="javascript:Show(2)">2018-1-1</a></span></li>
+                <li id="index3"><i class="fa fa-arrow-circle-right fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<span><a href="javascript:Show(3)">2017-1-2</a></span></li>
+                <li id="index4"><i class="fa fa-arrow-circle-right fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<span><a href="javascript:Show(4)">2017-1-3</a></span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="seats">
+        <iframe style="display: block" frameboder="0" border="0" scrolling="no" id="iframe1" src="/seats" width="100%" height="100%"></iframe>
+        <iframe style="display: none" frameboder="0" border="0" scrolling="no" id="iframe2" src="seat2.html" width="100%" height="100%"></iframe>
+        <iframe style="display: none" frameboder="0" border="0" scrolling="no" id="iframe3" src="seats.html" width="100%" height="100%"></iframe>
+        <iframe style="display: none" frameboder="0" border="0" scrolling="no" id="iframe4" src="seats.html" width="100%" height="100%"></iframe>
+</div>
+
+<script>
+
+    function Show(id){
+        for(var i=0;i<4;i++){
+            var indexinfo=document.getElementById('index'+(i+1));
+            var iframeinfo=document.getElementById('iframe'+(i+1));
+            indexinfo.style.color='#fff';
+            iframeinfo.style.display='none';
+        }
+        var index =document.getElementById('index'+id);
+        var iframe =document.getElementById('iframe'+id);
+        index.style.color='#00b3ee';
+        iframe.style.display='block';
+    }
+
+</script>
+</body>
+</html>

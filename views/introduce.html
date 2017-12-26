@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="stylesheets/font-awesome.min.css">
+    <script src="javascripts/jquery-3.1.0.min.js"></script>
+    <script src="javascripts/bootstrap.min.js"></script>
+    <style type="text/css">
+        html, body {width:100%;height:100%;} /*非常重要的样式让背景图片100%适应整个屏幕*/
+        *{
+            padding:0px;
+            margin:0px;
+        }
+
+        .my-navbar {padding:20px 0;background-color: rgba(0,0,0,0.4);}
+        .my-navbar a{background:transparent !important;color:#fff !important;font-size: 25px;}
+        #TITLE{font-size: 40px;font-weight: 200;}
+        .navbar-nav li{margin-left: 80px;}
+        .my-navbar a:hover {color:#45bcf9 !important;background:transparent;outline:0}
+        /*.my-navbar a {transition: color 0.5s ease-in-out;}!*-webkit-transition ;-moz-transition*!*/
+        /*.top-nav {padding:0;background:#000;}*/
+        /*button.navbar-toggle {background-color:#fbfbfb;}!*整个背景都是transparent透明的，会看不到，所以再次覆盖一下*!*/
+        /*button.navbar-toggle > span.icon-bar {background-color:#dedede}*/
+        nav{float:right;margin-right: 10px;}
+        .navbar-collapse nav{margin-top: 10px;}
+
+        ul {
+            list-style:none;
+        }
+        .slideBox {
+            width:1730px;
+            height:870px;
+            position:relative;
+            overflow:hidden;
+        }
+        .slideBox ul {
+            position:relative;
+            width:9000px;}
+        .slideBox  li {
+            float:left;
+            width:1730px;
+            height:870px;
+            position:relative;
+
+        }
+        .spanBox {
+            position:absolute;
+            width:1730px;
+            height:20px;
+            bottom:10px;
+            left:780px;
+        }
+        .spanBox span {
+            width:18px;
+            height:18px;
+            margin-left:5px;
+            background-color:#696969;
+            line-height:16px;
+            text-align:center;
+            font-family:"Abyssinica SIL";
+            font-size:15px;
+            border-radius: 15px;
+            float:left;
+        }
+        .slideBox .spanBox .active {
+            background-color:#ffffff;
+            border-radius:15px;
+        }
+        .prev {
+            position:absolute;
+            left:0px;
+            top:400px;
+            float:left;
+            border-left:solid 1px rgba(251,245,246,1.00);
+            opacity:0.5;
+        }
+        .next {
+            width:40px;
+            height:40px;
+            position:absolute;
+            right:0px;
+            top:400px;
+            float:right;
+            border-right:solid 1px rgba(245,237,237,1.00);
+            opacity:0.5
+        }
+        .index{
+            float:left;
+            width:20%;
+            height:700px;
+        }
+        .indextitle{
+            background-color: #00b3ee;
+            width:100%;
+            height:80px;
+            padding:15px;
+        }
+        .indextitle span{
+            color:#fff;
+            font-weight: 200;
+            font-size: 40px;
+        }
+        .indexpart{
+            padding-top: 40px;
+            padding-left: 20px;
+            background-color: #2b2a2a;
+            color:#fff;
+            width:100%;
+            height:720px;
+            font-family: "Microsoft Yahei", Helvetica, arial, sans-serif,FontAwesome !important;
+        }
+        .indexpart li{
+            margin-bottom: 20px;
+            color:#fff;
+        }
+        .indexpart a{
+             color:#fff;
+             text-decoration: none;
+         }
+
+        .indexpart a:hover{
+            color:#00b3ee;
+        }
+
+        .indexpart span{
+            font-size: 23px;
+        }
+        .indexpart .nav>li:hover{
+            color:#00b3ee;
+        }
+
+    .introduce_words{
+        width:80%;
+        height:800px;
+        padding:30px;
+        color:#000;
+        background-color: #D3D3D3;
+        float:left;
+        line-height: 35px;
+        font-size: 20px;
+    }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-fixed-top my-navbar" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#example-navbar-collapse">
+                <span class="sr-only">切换导航</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" id="TITLE" href="#">长恨歌剧院</a>
+        </div>
+        <div class="collapse navbar-collapse" id="example-navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/home">首页</a></li>
+                <li><a href="/drama_order">购票</a></li>
+                <li>
+                    <a href="introduce">中心介绍</a>
+                </li>
+            </ul>
+
+            <nav>
+                <span><a title="登陆" href="/login">登陆</a></span>&nbsp;
+                <span><a title="注册" href="/reg">注册</a></span>
+            </nav>
+
+        </div>
+    </div>
+</nav>
+<div class="slideBox">
+    <ul>
+        <li><img src="images/1.png" alt="" width="1730" height="870"/></li>
+        <li><img src="images/2.jpg" alt="" width="1730" height="870"/></li>
+        <li><img src="images/1.png" alt="" width="1730" height="870"/></li>
+        <li><img src="images/2.jpg" alt="" width="1730" height="870"/></li>
+
+    </ul>
+    <div class="spanBox">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div class="prev"><img src="images/left.png" width="40" height="40" alt=""/></div>
+    <div class="next"><img src="images/right.png" width="40" height="40" alt=""/></div>
+</div>
+
+<div class="introduce">
+    <div class="index">
+    <div class="indextitle"><span>中心介绍</span></div>
+    <div class="indexpart">
+        <ul class="nav nav-bar">
+            <li id="index1"><i class="fa fa-arrow-circle-right fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<span><a href="javascript:Show(1)">剧院风采</a></span></li>
+            <li id="index2"><i class="fa fa-arrow-circle-right fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<span><a href="javascript:Show(2)">剧情介绍</a></span></li>
+            <li id="index3"><i class="fa fa-arrow-circle-right fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<span><a href="javascript:Show(3)">关于我们</a></span></li>
+            <li id="index4"><i class="fa fa-arrow-circle-right fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;<span><a href="javascript:Show(4)">如何到达</a></span></li>
+        </ul>
+    </div></div>
+    <div class="introduce_words">
+        <div id="words1" style="display:block"><p>
+            位于上海话剧中心大厦一楼的艺术剧院是上海首屈一指的舞台剧演出场地。高雅、专业、人性是艺术剧院所要展现给热爱舞台艺术
+            的每一个观众的。 舞台灯光、音响、吊杆设施齐全、专业，相应的灯光、音响操作间配有一流的操作台和各种操作设备；位于一楼
+            的服装间和二楼的化妆间为每一位来 这里的演员们提供了一个良好、舒适、温馨休息场所。 剧院共可容纳530位观众，观众席的人
+            性化设计让每一个观众都能在最舒适的座位上获得最好的视觉和听觉效果。二楼7间豪华包厢，更是给观众提供 了舒适幽雅的观赏空间。
+            剧场外的大堂宽敞、明亮，大理石和花岗岩在设计师精心的设计下尽显优雅，这里也成了各类新闻发布会和酒会举办的理想场所。
+            </p></div>
+    <div id="words2" style="display: none">
+        <p>
+            一个女人四十年的情与爱，被一支细腻而绚烂的笔写得哀婉动人，跌宕起伏。<br>
+            二十世纪四十年代，还是中学生的王琦瑶被选为“上海小姐”，从此开始命运多舛的一生。先是做了某大员的“金丝雀”从少女变成了真正的
+            女人。后上海解放，大员遇难，王琦瑶成了普通百姓，顿似漂萍。表面的日子平淡似水，内心的情感潮水却从未平息，与几个男人的复杂
+            关系，阴差阳错，幽怨百结，想来都是命里注定。面对时代的汪洋大海，她软弱地固守昔日的生活方式和情调，渐渐沉溺……<br>
+            八十年代，已是知天命的王琦瑶难逃劫数，与一名叫“老克勒”的怀旧青年发生畸恋，余光暗淡，心怀热烈，却意外地死于非命，饮恨黄泉……
+        </p>
+    </div><div id="words3" style="display: none">
+        <p>
+            上海话剧艺术中心是上海唯一的国家级话剧表演艺术剧院，也是代表中国最优秀的话剧团体之一。
+            不仅有着一大批代表着中国顶级艺术水平、经验丰富的编剧、导演、演员、舞美等专业人才聚集在旗下长期从事话剧表演艺术创作；
+            还拥有三座大小各异、功能齐全、观众席位总数一千个的专业演出剧场；每年上话自主创作、交流、引进及巡回的各类演出八百多场次，
+            吸引国内外观众三十余万人次。依据上海国际文化大都市定位，坚持国家核心价值观，上海话剧艺术中心的发展宗旨是：追求行业发展的引
+            领示范作用，坚持以人民为中心的创作导向，努力将上海话剧艺术中心建设成为具有国际声望、且与上海这座城市地位相匹配的现代化剧院。
+            从1995年1月23日上海人民艺术剧院和上海青年话剧团合并组建至今，上海话剧艺术中心走过二十余年。作为上海唯一的国家级话剧院团，
+            上海话剧艺术中心时刻牢记自己担负的历史使命和责任，坚持以人民为中心的创作导向，在努力继承优秀传统的同时，不断推陈出新，创作出
+            了一系列充满活力而又脍炙人口的佳作，展现时代风貌，引领时代风气，在整体风格上形成了经典性与时代性并行不悖的格局。
+            <br>
+            追溯上海话剧艺术中心的历史渊源，翻阅中国话剧的历史。中国话剧起源于十九世纪末、二十世纪初西方文明对上海的流入，它成长初期文
+            化秉性的先进性就得到了早期共产党人的主动拥抱。上个世纪三十年代，在老一辈无产阶级革命家周恩来及左翼联盟领导下，上海活跃的
+            话剧活动就与祖国共命运、与人民同呼吸、与时代同步伐，揭露黑暗与讴歌光明，诞生了《上海屋檐下》等一批颇有影响力的优秀话剧作品，
+            并在反法西斯抗日战争中，发挥了团结人民、打击敌人的不可替代作用。共和国建立后，在原中共领导的抗敌演剧队和华东文工团的基础上
+            成立了上海人民艺术剧院和以上海戏剧学院优秀毕业生为主体的上海青年话剧团。具有优秀艺术传统的两家国家话剧院团成立之初，分别由戏
+            剧大师夏衍、黄佐临和熊佛西先生领导，起步就致力于中西方经典名著的推广介绍及制作上演表现时代精神的优秀原创话剧作品。
+        </p>
+    </div><div id="words4" style="display: none">
+        <p>
+
+        </p>
+    </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        var slideBox = $(".slideBox");
+        var ul = slideBox.find("ul");
+        var oneWidth = slideBox.find("ul li").eq(0).width();
+        var number = slideBox.find(".spanBox span");            //注意分号 和逗号的用法
+        var timer = null;
+        var sw = 0;
+        //每个span绑定click事件，完成切换颜色和动画，以及读取参数值
+        number.on("click",function (){
+            $(this).addClass("active").siblings("span").removeClass("active");
+            sw=$(this).index();
+            ul.animate({
+                "right":oneWidth*sw,    //ul标签的动画为向左移动；
+            });
+        });
+        //左右按钮的控制效果
+        $(".next").stop(true,true).click(function (){
+            sw++;
+            if(sw==number.length){sw=0};
+            number.eq(sw).trigger("click");
+        });
+        $(".prev").stop(true,true).click(function (){
+            sw--;
+            if(sw==number.length){sw=0};
+            number.eq(sw).trigger("click");
+        });
+        //定时器的使用，自动开始
+        timer = setInterval(function (){
+            sw++;
+            if(sw==number.length){sw=0};
+            number.eq(sw).trigger("click");
+        },4000);
+        //hover事件完成悬停和，左右图标的动画效果
+        slideBox.hover(function(){
+            $(".next,.prev").animate({
+                "opacity":1,
+            },6000);
+            clearInterval(timer);
+        },function(){
+            $(".next,.prev").animate({
+                "opacity":0.5,
+            },6000);
+            timer = setInterval(function (){
+                sw++;
+                if(sw==number.length){sw=0};
+                number.eq(sw).trigger("click");
+            },6000);
+        })
+
+    });
+function Show(id){
+ for(var i=0;i<4;i++){
+     var divinfo=document.getElementById('words'+(i+1));
+     var indexinfo=document.getElementById('index'+(i+1));
+     divinfo.style.display='none';
+     indexinfo.style.color='#fff';
+ }
+    var div =document.getElementById('words'+id);
+    var index =document.getElementById('index'+id);
+    div.style.display='block';
+    index.style.color='#00b3ee';
+}
+
+</script>
+</body></html>
